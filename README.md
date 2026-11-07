@@ -45,7 +45,29 @@ The project will be developed through explicit baselines, documented implementat
 The following diagram represents the **planned** system flow, not a claim that every component is already implemented.
 
 ```mermaid
-flowchart TD\n A[Resume PDF / text] --> C[Text extraction]\n B[Job description] --> C\n C --> D[Section and skill extraction]\n D --> E[Evidence spans]\n E --> F1[Keyword baseline]\n E --> F2[TF-IDF similarity]\n E --> F3[Semantic similarity]\n F1 --> G[Comparison and evidence rules]\n F2 --> G\n F3 --> G\n G --> H[Supported / related / not evidenced]\n H --> I[Explainable gap report]\n I --> J[Evaluation]
+
+flowchart TD
+    A["Resume PDF"] --> C["PDF text extraction"]
+    B["Job description"] --> D["Job description processing"]
+    C --> E["Text cleaning and normalization"]
+    D --> E
+    E --> F["Skill extraction"]
+    F --> G["Evidence span identification"]
+    G --> H["Skill representation"]
+    H --> I["Keyword matching"]
+    H --> J["TF-IDF similarity"]
+    H --> K["Semantic embedding similarity"]
+    I --> L["Skill matching and comparison"]
+    J --> L
+    K --> L
+    L --> M["Supported skills"]
+    L --> N["Related skills"]
+    L --> O["Skills not evidenced"]
+    M --> P["Explainable skill gap report"]
+    N --> P
+    O --> P
+    P --> Q["Recommendations and evaluation"]
+
 ```
 
 ## Evaluation strategy
